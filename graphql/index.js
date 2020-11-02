@@ -31,6 +31,7 @@ const server = new ApolloServer({
     return error;
   },
   playground: true,
+  introspection : true,
 });
 
 module.exports = server;
