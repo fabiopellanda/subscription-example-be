@@ -1,0 +1,50 @@
+type Query { 
+  users (online: Boolean): [User]
+  options: [Option]
+  _dev_timestamp: String
+}
+
+type Mutation {
+  _dev: String
+  subscriptionWithFilter(filter:String): String
+  createUser(
+    ip: String!
+  ): User
+  createOption(
+    name: String!
+  ): Option
+  vote(
+    userId: String!
+    optionId: String!
+  ): Option
+  updateUser(
+    id: String!
+    online: Boolean
+  ): User
+}
+
+type User {
+  id: String
+  ip: String
+  votes: [Vote]
+  online: Boolean
+}
+
+type Option {
+  id: String
+  name: String
+  count: Int
+}
+
+type Vote {
+   userId: String!
+   optionId: String!
+}
+
+type Subscription {
+  _dev: String
+  subscriptionWithFilter(filter: String): String
+  liveResult: [Option]
+  newUser: [User]
+}
+
