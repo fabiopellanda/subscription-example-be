@@ -30,6 +30,7 @@ const server = new ApolloServer({
     }
     return error;
   },
+  playground: true,
 });
 
 module.exports = server;
